@@ -12,17 +12,36 @@
 #include <cstdlib>
 #include <cstring>
 #include <cstdio>
+#include <cstdarg>
 
 #include "MenuComponent.hpp"
+#include "List.hpp"
+#include "io.hpp"
+
+enum class status {
+    
+    noExit,
+    exit
+    
+};
 
 class Menu {
     
-    MenuComponent * _components;
+    list<MenuComponent> _components;
+    
+    short selectedOption = 0;
+    
+    void display();
+    status handleInput();
     
 public:
     
     Menu();
-    Menu(unsigned int count, MenuComponent ...);
+    
+    void addComponent(const MenuComponent & cmp);
+    void addComponent(const MenuComponent && cmp);
+    
+    void loop();
     
 };
 

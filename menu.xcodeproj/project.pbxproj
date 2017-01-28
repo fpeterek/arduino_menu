@@ -11,6 +11,7 @@
 		4E81EBC41E3A3F5900F92656 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E81EBC21E3A3F5900F92656 /* Menu.cpp */; };
 		4E81EBC71E3A3FB600F92656 /* MenuComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E81EBC51E3A3FB600F92656 /* MenuComponent.cpp */; };
 		4E81EBD01E3A45A900F92656 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E81EBCE1E3A45A900F92656 /* List.cpp */; };
+		4EBB49A11E3BDD89003A91C5 /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB499F1E3BDD89003A91C5 /* io.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		4E81EBC61E3A3FB600F92656 /* MenuComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuComponent.hpp; sourceTree = "<group>"; };
 		4E81EBCE1E3A45A900F92656 /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
 		4E81EBCF1E3A45A900F92656 /* List.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
+		4EBB499F1E3BDD89003A91C5 /* io.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = io.cpp; sourceTree = "<group>"; };
+		4EBB49A01E3BDD89003A91C5 /* io.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = io.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				4E81EBC31E3A3F5900F92656 /* Menu.hpp */,
 				4E81EBC51E3A3FB600F92656 /* MenuComponent.cpp */,
 				4E81EBC61E3A3FB600F92656 /* MenuComponent.hpp */,
+				4EBB499F1E3BDD89003A91C5 /* io.cpp */,
+				4EBB49A01E3BDD89003A91C5 /* io.hpp */,
 				4E81EBCE1E3A45A900F92656 /* List.cpp */,
 				4E81EBCF1E3A45A900F92656 /* List.hpp */,
 			);
@@ -135,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBB49A11E3BDD89003A91C5 /* io.cpp in Sources */,
 				4E81EBC41E3A3F5900F92656 /* Menu.cpp in Sources */,
 				4E81EBD01E3A45A900F92656 /* List.cpp in Sources */,
 				4E81EBBC1E3A3EFB00F92656 /* main.cpp in Sources */,
@@ -267,6 +273,7 @@
 				4E81EBC11E3A3EFB00F92656 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

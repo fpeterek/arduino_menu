@@ -23,11 +23,17 @@ class MenuComponent {
 public:
     
     MenuComponent();
-    MenuComponent(char * newString, void (*newFunction)(void));
+    MenuComponent(const char * newString, void (*newFunction)(void) = &noFunction);
+    MenuComponent(MenuComponent & mc);
     
-    void setString(char * newString);
-    void setFunction(void (*newFunction)(void));
+    ~MenuComponent();
+    
+    void setString(const char * newString);
+    void setFunction(void (*newFunction)(void) = &noFunction);
+    void (*getFunction())(void);
     const char * getString();
+    
+    void call();
     
 };
 

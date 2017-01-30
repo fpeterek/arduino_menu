@@ -51,8 +51,8 @@ status Menu::handleInput() {
     } else if (input == 's') {
         
         ++selectedOption;
+        
     }
-    
     
     if (selectedOption < 0) {
         
@@ -64,10 +64,23 @@ status Menu::handleInput() {
         
     }
     
+    if (selectedOption > 4) {
+        
+        --startPrintingAt;
+        
+    } else if (_components.length() - selectedOption >= 4) {
+        
+        ++startPrintingAt;
+        
+    }
+    
     if (input == '\n') {
         
         _components[selectedOption].call();
-        return status::exit;
+        
+        if (selectedOption == _components.length() - 1) {
+            return status::exit;
+        }
         
     }
     
@@ -75,8 +88,37 @@ status Menu::handleInput() {
     
 }
 
+char * Menu::prependAsterisk(const char * str) {
+    
+    char * newStr = (char *)malloc(strlen(str) + 2);
+    strcpy(newStr + 2, str);
+    newStr[0] = '*';
+    newStr[1] = ' ';
+    
+    return newStr;
+    
+}
+
 void Menu::display() {
     
+    const int startAt = _components.length() <= 4 ? 0 : startPrintingAt;
     
+    for (int i = startAt; i < _components.length(); ++i) {
+        
+        const char * str = _components[i].getString();
+        
+        if (i == selectedOption) {
+            
+            char * temp = Menu::prependAsterisk(str);
+            print(temp);
+            free(temp);
+            
+        } else {
+            
+            print(str);
+            
+        }
+        
+    }
     
 }

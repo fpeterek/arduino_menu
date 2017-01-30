@@ -29,10 +29,13 @@ class Menu {
     
     list<MenuComponent> _components;
     
-    short selectedOption = 0;
+    short selectedOption  = 0;
+    short startPrintingAt = 0;
     
     void display();
     status handleInput();
+    
+    static char * prependAsterisk(const char * str);
     
 public:
     

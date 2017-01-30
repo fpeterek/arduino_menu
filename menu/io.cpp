@@ -10,12 +10,10 @@
 
 char read() {
     
-    char c;
-    
     std::string str;
     std::getline(std::cin, str);
-    c = str[0];
-    
-    return c;
+    /* Append \n because std::getline trims it */
+    str.append("\n");
+    return str[0];
     
 }

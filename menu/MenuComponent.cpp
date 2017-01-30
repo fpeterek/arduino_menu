@@ -40,6 +40,19 @@ MenuComponent::MenuComponent(MenuComponent & mc) {
     
 }
 
+void MenuComponent::operator= (const MenuComponent & mc) {
+    
+    setString(mc.getString());
+    setFunction(mc.getFunction());
+    
+}
+
+void MenuComponent::operator=(const MenuComponent && mc) {
+    
+    operator=(mc);
+    
+}
+
 MenuComponent::~MenuComponent() {
     
     free(string);
@@ -60,13 +73,13 @@ void MenuComponent::setFunction(void (*newFunction)(void)) {
     
 }
 
-const char * MenuComponent::getString() {
+const char * MenuComponent::getString() const {
     
     return string;
     
 }
 
-void (*MenuComponent::getFunction())(void) {
+funPtr MenuComponent::getFunction() const {
     
     return function;
     

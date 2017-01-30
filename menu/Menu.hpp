@@ -27,10 +27,12 @@ enum class status {
 
 class Menu {
     
+public:
     list<MenuComponent> _components;
     
     short selectedOption  = 0;
     short startPrintingAt = 0;
+    short printingCounter = 0;
     
     void display();
     status handleInput();

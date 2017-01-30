@@ -13,6 +13,8 @@
 #include <cstring>
 #include <cstdio>
 
+typedef void (*funPtr)(void);
+
 void noFunction();
 
 class MenuComponent {
@@ -28,10 +30,14 @@ public:
     
     ~MenuComponent();
     
+    void operator= (const MenuComponent & mc);
+    void operator= (const MenuComponent && mc);
+    
     void setString(const char * newString);
     void setFunction(void (*newFunction)(void) = &noFunction);
-    void (*getFunction())(void);
-    const char * getString();
+    
+    funPtr getFunction() const;
+    const char * getString() const;
     
     void call();
     

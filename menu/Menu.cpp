@@ -18,7 +18,7 @@ void Menu::addComponent(const MenuComponent & cmp) {
     
     size_t compLen = _components.length();
     
-    _components.insert(cmp, compLen - ((compLen > 2) ? 2 : 1) );
+    _components.insert(cmp, compLen - ((compLen > 3) ? 2 : 1) );
     
 }
 
@@ -47,30 +47,27 @@ status Menu::handleInput() {
     if (input == 'w') {
         
         --selectedOption;
+        printingCounter ? --printingCounter : --startPrintingAt;
         
     } else if (input == 's') {
         
         ++selectedOption;
+        printingCounter < 3 ? ++printingCounter : ++startPrintingAt;
         
     }
     
     if (selectedOption < 0) {
         
-        selectedOption = _components.length() - 1;
+        selectedOption  = _components.length() - 1;
+        startPrintingAt = selectedOption - 3;
+        printingCounter = 3;
         
     } else if (selectedOption >= _components.length()) {
         
-        selectedOption = 0;
-        
-    }
-    
-    if (selectedOption > 4) {
-        
-        --startPrintingAt;
-        
-    } else if (_components.length() - selectedOption >= 4) {
-        
-        ++startPrintingAt;
+        /* I'm bored */
+        selectedOption  ^= selectedOption;
+        startPrintingAt ^= startPrintingAt;
+        printingCounter ^= printingCounter;
         
     }
     
@@ -101,9 +98,10 @@ char * Menu::prependAsterisk(const char * str) {
 
 void Menu::display() {
     
-    const int startAt = _components.length() <= 4 ? 0 : startPrintingAt;
+    const size_t startAt = _components.length() <= 4 ? 0 : startPrintingAt;
+    const size_t endAt = (startAt + 4 < _components.length()) ? startAt + 4 : _components.length();
     
-    for (int i = startAt; i < _components.length(); ++i) {
+    for (size_t i = startAt; i < endAt; ++i) {
         
         const char * str = _components[i].getString();
         
